@@ -28,17 +28,21 @@
 		
 		<table border="1" style="width:100%">
 		  <tr>
+		  	<td>Código</td>
 		    <td>Nome</td>
 		    <td>Rua/Complemento</td> 
 		    <td>Bairro</td>
 		    <td>Cidade</td>
+		    <td>Remover</td>
 		  </tr>
 		  <c:forEach var="cliente" items="${clientes}"> 
-			  <tr>
+			  <tr>	
+			  		<td>${cliente.codigo}</td>	
 			    	<td>${cliente.nome}</td>
 			    	<td>${cliente.ruaNroComp}</td>
 			    	<td>${cliente.bairro}</td>
 			    	<td>${cliente.cidade}</td>
+			    	<td><a href="remover?codigo=${cliente.codigo}" title="Remover Cliente">Remover Cliente</a></td>
 			  </tr>
 		  </c:forEach>
 		</table>	

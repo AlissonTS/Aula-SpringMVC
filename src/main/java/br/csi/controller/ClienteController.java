@@ -14,7 +14,7 @@ public class ClienteController {
 	public String msgTeste(){
 		
 		System.out.println("Chamou o Controllador :D");
-		return "cliente";
+		return "forward:listaClientes";
 	}
 	
 	@RequestMapping("adicionarClientes")
@@ -22,7 +22,18 @@ public class ClienteController {
 		
 		boolean retorno  = new ClienteDao().adicionar(cliente);
 		if(retorno){
-			return "cliente";
+			return "forward:listaClientes";
+		}else{
+			return "erro";
+		}
+	}
+	
+	@RequestMapping("remover")
+	public String remover(Cliente c){
+		
+		boolean retorno  = new ClienteDao().remover(c);
+		if(retorno){
+			return "forward:listaClientes";
 		}else{
 			return "erro";
 		}
